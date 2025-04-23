@@ -97,7 +97,7 @@ printf("\n Densidade Populacional: %.2f hab/km²",densidade2);
 printf("\n PIB per capita: R$ %.2f reais",pib_capita2);
 printf("\n====================================================\n");
 
-
+/*
 //DESAFIO NVL 1.3 - MESTRE
 printf("----- Comparação de Cartas: -----\n");
 printf("População: Carta 1 venceu? %d\n", populacao > populacao2);
@@ -107,6 +107,7 @@ printf("Pontos Turísticos: Carta 1 venceu? %d\n",N_ptosturismo>N_ptosturismo2);
 printf("Densidade Pooulacional: Carta 2 venceu? %d\n",densidade2>densidade);
 printf("PIB per capita: Carta 1 venceu? %d\n",pib>pib2);
 printf("Super Poder: Carta 1 venceu? %d\n\n",superpoderA>superpoderB);
+
 
 //DESAFIO NVL 2.1 - NOVATO
 //Q comecem os jogos!
@@ -154,6 +155,98 @@ printf("\n\nCATEGORIA: Super Poder\n");
     } else{
         printf("A cidade %s ganhou neste quesito por ter %.2f", cidade2, superpoderB);
     }
+*/
+    //DESADIO 2.2 - MESTRE usando o switch
+    int escolha = 1;
 
-return 0;
+    while (escolha > 0 && escolha < 6)
+    {
+printf("\n\n==================================\n");
+printf("\tCOMECE O JOGO!");
+printf("\n==================================\n");
+printf("ESCOLHA A CATEGORIA\n");
+printf("1- POPULAÇÃO\n");
+printf("2- AREA\n");
+printf("3- PIB\n");
+printf("4- NÚMERO DE PONTOS TURÍSTICOS\n");
+printf("5- DENSIDADE\n");
+printf("6- -SAIR-\n");
+scanf("%i", &escolha);  
+
+switch (escolha)
+{
+printf("\n%s VS %s\n", cidade, cidade2);
+
+    case 1: //POPULAÇÃO
+    printf("Categoria escolhida: POPULAÇÃO\n");
+    printf("%s: %i e %s: %i\n", cidade, populacao, cidade2, populacao2);
+            if (populacao>populacao2)
+            {
+               printf("%s venceu!", cidade);
+            } else if (populacao == populacao2){
+                printf("%s e %s empataram!", cidade, cidade2);
+            } else{
+                printf("%s venceu!", cidade2);
+            }
+            
+        break;
+    case 2: //AREA
+    printf("Categoria escolhida: AREA \n");
+    printf("%s: %.2fKm² e %s: %.2fKm²\n", cidade, area, cidade2, area2);
+            if (area>area2)
+            {
+               printf("%s venceu!", cidade);
+            } else if (area == area2){
+                printf("%s e %s empataram!", cidade, cidade2);
+            } else{
+                printf("%s venceu!", cidade2);
+            }
+    
+        break;  
+    case 3://PIB
+    printf("Categoria escolhida: PIB\n");
+    printf("%s:R$ %.2fbi e %s:R$ %.2fbi\n", cidade, pib, cidade2, pib2);
+            if (pib>pib2)
+            {
+               printf("%s venceu!", cidade);
+            } else if (pib == pib2){
+                printf("%s e %s empataram!", cidade, cidade2);
+            } else{
+                printf("%s venceu!", cidade2);
+            }
+    
+        break;
+    case 4: //Nº DE PTS TUR
+    printf("Categoria escolhida: Nº DE PONTOS TURÍSTICOS\n");
+    printf("%s: %i e %s: %i\n", cidade, N_ptosturismo, cidade2, N_ptosturismo2);
+            if (N_ptosturismo>N_ptosturismo2)
+            {
+               printf("%s venceu!", cidade);
+            } else if (N_ptosturismo == N_ptosturismo2){
+                printf("%s e %s empataram!", cidade, cidade2);
+            } else{
+                printf("%s venceu!", cidade2);
+            }
+    
+        break;  
+    case 5: //DENSIDADE
+    printf("Categoria escolhida: DENSIDADE\n");
+    printf("%s: %.2fhab/km² e %s: %.2fhab/km²\n", cidade, densidade, cidade2, densidade2);
+            if (densidade<densidade2)
+            {
+               printf("%s venceu!", cidade);
+            } else if (densidade == densidade2){
+                printf("%s e %s empataram!", cidade, cidade2);
+            } else{
+                printf("%s venceu!", cidade2);
+            }
+  
+        break;
+
+    default:
+        printf("OPÇÃO INVÁLIDA");
+        break;
+}
+printf("\n\n");
+}
 }
