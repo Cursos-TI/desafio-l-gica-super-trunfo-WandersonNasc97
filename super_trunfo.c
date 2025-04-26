@@ -97,83 +97,122 @@ printf("\n Densidade Populacional: %.2f hab/km²",densidade2);
 printf("\n PIB per capita: R$ %.2f reais",pib_capita2);
 printf("\n====================================================\n");
 
-/*
-//DESAFIO NVL 1.3 - MESTRE
-printf("----- Comparação de Cartas: -----\n");
-printf("População: Carta 1 venceu? %d\n", populacao > populacao2);
-printf("Area: Carta 1 venceu? %d\n", area>area2);
-printf("PIB: Carta 1 venceu? %d\n", pib > pib2);
-printf("Pontos Turísticos: Carta 1 venceu? %d\n",N_ptosturismo>N_ptosturismo2);
-printf("Densidade Pooulacional: Carta 2 venceu? %d\n",densidade2>densidade);
-printf("PIB per capita: Carta 1 venceu? %d\n",pib>pib2);
-printf("Super Poder: Carta 1 venceu? %d\n\n",superpoderA>superpoderB);
-
-
-//DESAFIO NVL 2.1 - NOVATO
-//Q comecem os jogos!
-printf("\n\nCATEGORIA: População\n");
-    if (populacao > populacao2)
-    {
-        printf("Cidade %s venceu com a população de %i", cidade, populacao);
-    } else{
-        printf("Cidade %s venceu com a população de %i\n", cidade2, populacao2);
-    }
-    
-printf("\n\nCATEGORIA: Área\n");
-    if (area>area2)
-    {
-        printf("A cidade %s de área igual a %.2f km², venceu!", cidade, area);
-    } else{
-        printf("A cidade %s de área igual a %.2f km², venceu!", cidade2, area2);
-    }
-    
-printf("\n\nCATEGORIA: PIB\n");
-    if (pib>pib2){
-        printf("A cidade %s com o PIB de R$ %.2f, venceu!", cidade, pib);
-    } else{
-        printf("A cidade %s com o PIB de R$ %.2f, venceu!", cidade2, pib2);
-    }
-printf("\n\nCATEGORIA: Pontos Turísticos\n");
-    if (N_ptosturismo>N_ptosturismo2)
-    {
-        printf("A cidade %s com %i pontos turísticos, venceu!", cidade, N_ptosturismo);
-    } else{
-        printf("A cidade %s com %i pontos turísticos, venceu!", cidade2, N_ptosturismo2);
-    }
-    
-printf("\n\nCATEGORIA: PIB Per capita\n");
-    if (pib_capita>pib_capita2)
-    {
-        printf("A cidade %s com o PIB per capita de R$ %.2f, venceu!", cidade, pib_capita);
-    } else{
-        printf("A cidade %s com o PIB per capita de R$ %.2f, venceu!", cidade2, pib_capita2);
-    }
-    
-printf("\n\nCATEGORIA: Super Poder\n");
-    if(superpoderA>superpoderB){
-        printf("A cidade %s ganhou neste quesito por ter %.2f", cidade, superpoderA);
-    } else{
-        printf("A cidade %s ganhou neste quesito por ter %.2f", cidade2, superpoderB);
-    }
-*/
     //DESADIO 2.2 - MESTRE usando o switch
-    int escolha = 1;
-
-    while (escolha > 0 && escolha < 6)
-    {
+    int escolha = 1, escolha2;
 printf("\n\n==================================\n");
 printf("\tCOMECE O JOGO!");
 printf("\n==================================\n");
-printf("ESCOLHA A CATEGORIA\n");
+printf("\nESCOLHA A CATEGORIA\n");
 printf("1- POPULAÇÃO\n");
 printf("2- AREA\n");
 printf("3- PIB\n");
 printf("4- NÚMERO DE PONTOS TURÍSTICOS\n");
 printf("5- DENSIDADE\n");
 printf("6- -SAIR-\n");
-scanf("%i", &escolha);  
+printf("Sua 1ª categoria\n");
+scanf("%i", &escolha);
 
+printf("Sua 2ª categoria\n");
+scanf("%i", &escolha2);
+
+while (escolha == escolha2)
+{
+    printf("Você já escolheu esta categoria, tente de novo\n");
+    scanf("%i", &escolha2);
+}
+
+//DESAFIO 2.3 NÍVEL MESTRE
+double temp1, temp2, soma1, soma2;
+
+//COMPARANDO A *SEGUNDA* CATEGORIA
 switch (escolha)
+{
+printf("\n%s VS %s\n", cidade, cidade2);
+
+    case 1: //POPULAÇÃO
+    printf("Categoria escolhida: POPULAÇÃO\n");
+    temp1 = populacao;
+    temp2 = populacao2;
+    printf("%s: %i e %s: %i\n", cidade, populacao, cidade2, populacao2);
+            if (populacao>populacao2)
+            {
+               printf("%s venceu!", cidade);
+            } else if (populacao == populacao2){
+                printf("%s e %s empataram!", cidade, cidade2);
+            } else{
+                printf("%s venceu!", cidade2);
+            }
+            
+        break;
+    case 2: //AREA
+    printf("Categoria escolhida: AREA \n");
+    temp1 = area;
+    temp2 = area2;
+    printf("%s: %.2fKm² e %s: %.2fKm²\n", cidade, area, cidade2, area2);
+            if (area>area2)
+            {
+               printf("%s venceu!", cidade);
+            } else if (area == area2){
+                printf("%s e %s empataram!", cidade, cidade2);
+            } else{
+                printf("%s venceu!", cidade2);
+            }
+    
+        break;  
+    case 3://PIB
+    printf("Categoria escolhida: PIB\n");
+    temp1 = pib*1000000000;
+    temp2 = pib2*1000000000;
+    printf("%s:R$ %.2fbi e %s:R$ %.2fbi\n", cidade, pib, cidade2, pib2);
+            if (pib>pib2)
+            {
+               printf("%s venceu!", cidade);
+            } else if (pib == pib2){
+                printf("%s e %s empataram!", cidade, cidade2);
+            } else{
+                printf("%s venceu!", cidade2);
+            }
+    
+        break;
+    case 4: //Nº DE PTS TUR
+    printf("Categoria escolhida: Nº DE PONTOS TURÍSTICOS\n");
+    temp1 = N_ptosturismo;
+    temp2 = N_ptosturismo2;
+    printf("%s: %i e %s: %i\n", cidade, N_ptosturismo, cidade2, N_ptosturismo2);
+            if (N_ptosturismo>N_ptosturismo2)
+            {
+               printf("%s venceu!", cidade);
+            } else if (N_ptosturismo == N_ptosturismo2){
+                printf("%s e %s empataram!", cidade, cidade2);
+            } else{
+                printf("%s venceu!", cidade2);
+            }
+    
+        break;  
+    case 5: //DENSIDADE
+    printf("Categoria escolhida: DENSIDADE\n");
+    temp1 = densidade;
+    temp2 = densidade2;
+    printf("%s: %.2fhab/km² e %s: %.2fhab/km²\n", cidade, densidade, cidade2, densidade2);
+            if (densidade<densidade2)
+            {
+               printf("%s venceu!", cidade);
+            } else if (densidade == densidade2){
+                printf("%s e %s empataram!", cidade, cidade2);
+            } else{
+                printf("%s venceu!", cidade2);
+            }
+  
+        break;
+
+    default:
+        printf("OPÇÃO INVÁLIDA\n");
+        break;
+}
+printf("\n\n");
+
+//COMPARANDO A *SEGUNDA* CATEGORIA
+switch (escolha2)
 {
 printf("\n%s VS %s\n", cidade, cidade2);
 
@@ -188,7 +227,20 @@ printf("\n%s VS %s\n", cidade, cidade2);
             } else{
                 printf("%s venceu!", cidade2);
             }
-            
+            //soma dos atributos
+            soma1 = temp1 + populacao;
+            soma2 = temp2 + populacao2;
+            printf("\n\n--------------------------\n");
+            printf("Somando os atributos:\n");
+            printf("Cidade %s :%.2f \n", cidade, soma1);
+            printf("Cidade %s :%.2f \n", cidade2, soma2);
+            if (soma1 > soma2){
+                printf("Cidade %s ganhou\n",cidade);
+            } else if (soma1 < soma2) {
+                printf("Cidade %s ganhou\n",cidade2);
+            } else {
+                printf("Ambas empataram\n");
+            }
         break;
     case 2: //AREA
     printf("Categoria escolhida: AREA \n");
@@ -202,7 +254,22 @@ printf("\n%s VS %s\n", cidade, cidade2);
                 printf("%s venceu!", cidade2);
             }
     
-        break;  
+         //soma dos atributos
+            soma1 = temp1 + area;
+            soma2 = temp2 + area2;
+            printf("\n\n--------------------------\n");
+            printf("Somando os atributos:\n");
+            printf("Cidade %s :%.2f \n", cidade, soma1);
+            printf("Cidade %s :%.2f \n", cidade2, soma2);
+            if (soma1 > soma2){
+                printf("Cidade %s ganhou\n",cidade);
+            } else if (soma1 < soma2) {
+                printf("Cidade %s ganhou\n",cidade2);
+            } else {
+                printf("Ambas empataram\n");
+            }        
+            break;  
+
     case 3://PIB
     printf("Categoria escolhida: PIB\n");
     printf("%s:R$ %.2fbi e %s:R$ %.2fbi\n", cidade, pib, cidade2, pib2);
@@ -215,7 +282,22 @@ printf("\n%s VS %s\n", cidade, cidade2);
                 printf("%s venceu!", cidade2);
             }
     
-        break;
+         //soma dos atributos
+            soma1 = temp1 + (pib*1000000000);
+            soma2 = temp2 + (pib2*1000000000);
+            printf("\n\n--------------------------\n");
+            printf("Somando os atributos:\n");
+            printf("Cidade %s :%.2f \n", cidade, soma1);
+            printf("Cidade %s :%.2f \n", cidade2, soma2);
+            if (soma1 > soma2){
+                printf("Cidade %s ganhou\n",cidade);
+            } else if (soma1 < soma2) {
+                printf("Cidade %s ganhou\n",cidade2);
+            } else {
+                printf("Ambas empataram\n");
+            }        
+            break;
+
     case 4: //Nº DE PTS TUR
     printf("Categoria escolhida: Nº DE PONTOS TURÍSTICOS\n");
     printf("%s: %i e %s: %i\n", cidade, N_ptosturismo, cidade2, N_ptosturismo2);
@@ -228,7 +310,22 @@ printf("\n%s VS %s\n", cidade, cidade2);
                 printf("%s venceu!", cidade2);
             }
     
-        break;  
+         //soma dos atributos
+            soma1 = temp1 + N_ptosturismo;
+            soma2 = temp2 + N_ptosturismo2;
+            printf("\n\n--------------------------\n");
+            printf("Somando os atributos:\n");
+            printf("Cidade %s :%.2f \n", cidade, soma1);
+            printf("Cidade %s :%.2f \n", cidade2, soma2);
+            if (soma1 > soma2){
+                printf("Cidade %s ganhou\n",cidade);
+            } else if (soma1 < soma2) {
+                printf("Cidade %s ganhou\n",cidade2);
+            } else {
+                printf("Ambas empataram\n");
+            }        
+            break;  
+
     case 5: //DENSIDADE
     printf("Categoria escolhida: DENSIDADE\n");
     printf("%s: %.2fhab/km² e %s: %.2fhab/km²\n", cidade, densidade, cidade2, densidade2);
@@ -241,12 +338,25 @@ printf("\n%s VS %s\n", cidade, cidade2);
                 printf("%s venceu!", cidade2);
             }
   
-        break;
+         //soma dos atributos
+            soma1 = temp1 + densidade;
+            soma2 = temp2 + densidade2;
+            printf("\n\n--------------------------\n");
+            printf("Somando os atributos:\n");
+            printf("Cidade %s :%.2f \n", cidade, soma1);
+            printf("Cidade %s :%.2f \n", cidade2, soma2);
+            if (soma1 > soma2){
+                printf("Cidade %s ganhou\n",cidade);
+            } else if (soma1 < soma2) {
+                printf("Cidade %s ganhou\n",cidade2);
+            } else {
+                printf("Ambas empataram\n");
+            }        
+            break;
 
     default:
-        printf("OPÇÃO INVÁLIDA");
+        printf("OPÇÃO INVÁLIDA\n");
         break;
 }
 printf("\n\n");
-}
 }
